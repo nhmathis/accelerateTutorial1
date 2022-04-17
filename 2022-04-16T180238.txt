@@ -1,0 +1,9 @@
+[2022-04-16T23:02:30.830] [INFO] VelocityPluginRunner - Found decryption key file
+[2022-04-16T23:02:30.850] [INFO] githubApi - Final List of Repositories: accelerateTutorial
+[2022-04-16T23:02:30.851] [INFO] SyncGithubIssuesEvent - Getting issues since lastSync of Sat Apr 16 2022 22:57:28 GMT+0000 (Coordinated Universal Time)
+[2022-04-16T23:02:30.865] [INFO] githubApi - Syncing issues from accelerateTutorial
+(node:1) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+DEPRECATED (@octokit/rest): octokit.hasNextPage() – You can use octokit.paginate or async iterators instead: https://github.com/octokit/rest.js#pagination.
+[2022-04-16T23:02:31.170] [INFO] githubApi - Retrieved 0 issues from accelerateTutorial
+[2022-04-16T23:02:31.171] [INFO] SyncGithubIssuesEvent - Found 0 issues since lastSync of Sat Apr 16 2022 22:57:28 GMT+0000 (Coordinated Universal Time)

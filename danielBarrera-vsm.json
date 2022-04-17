@@ -1,0 +1,112 @@
+{
+  "description": null,
+  "query": "",
+  "phases": [
+    {
+      "name": "DEVELOP",
+      "description": "",
+      "stages": [
+        {
+          "name": "In Progress",
+          "query": "issue.status=\"Open\" AND deployment.env != PROD",
+          "description": "issue.comments.comment",
+          "targets": [
+            "In Review"
+          ],
+          "wipLimit": null,
+          "gates": null
+        },
+        {
+          "name": "In Review",
+          "query": "issue.status != DON and pr.status = open",
+          "description": "issue.comments",
+          "targets": [
+            "Merged"
+          ],
+          "wipLimit": 5,
+          "gates": null
+        },
+        {
+          "name": "Merged",
+          "query": "(pr.status=MERGED or pr.status=closed) AND build.status!=success AND deployment.env!=DEV and deployment.env!=PROD ",
+          "description": null,
+          "targets": [],
+          "wipLimit": null,
+          "gates": null
+        }
+      ]
+    }
+  ],
+  "leadTime": {
+    "start": "In Progress",
+    "end": "Merged"
+  },
+  "cycleTime": {
+    "start": "In Progress",
+    "end": "Merged"
+  },
+  "mappings": {
+    "priority": {
+      "Lowest": [
+        "Lowest"
+      ],
+      "Low": [
+        "Low"
+      ],
+      "Medium": [
+        "Medium"
+      ],
+      "High": [
+        "High"
+      ],
+      "Highest": [
+        "Highest"
+      ]
+    }
+  },
+  "integrations": [
+    {
+      "_id": "6257411ddb0a950018d516e6",
+      "type": "ucv-ext-jira",
+      "tenant_id": "5ade13625558f2c6688d15ce",
+      "name": "DanielTutorial",
+      "disabled": false,
+      "properties": {
+        "baseUrl": "https://danielbarrera2.atlassian.net",
+        "jiraJql": "project in (\"DAN\")",
+        "username": "daniel.er.barrera@gmail.com",
+        "password": "****"
+      },
+      "image": "hclcr.io/accelerate/ucv-ext-jira:2.2.1"
+    },
+    {
+      "_id": "62583e9edb0a950018d5197b",
+      "type": "ucv-ext-github",
+      "tenant_id": "5ade13625558f2c6688d15ce",
+      "name": "DanielGitRedo",
+      "disabled": false,
+      "properties": {
+        "apiUrl": "https://api.github.com",
+        "owner": "danielbarr3ra",
+        "token": "****",
+        "repositories": [
+          "accelerateTutorial"
+        ],
+        "branch": "main",
+        "otherBranches": []
+      },
+      "image": "hclcr.io/accelerate/ucv-ext-github:1.2.25"
+    }
+  ],
+  "linkRules": [
+    {
+      "fromIntegrationName": "DanielGitRedo",
+      "toIntegrationName": "DanielGitRedo",
+      "fromField": "pr.name",
+      "toField": "issue.id",
+      "pattern": "([A-Z]+-[0-9]+)"
+    }
+  ],
+  "metrics": null,
+  "metricsBar": null
+}

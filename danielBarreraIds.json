@@ -1,0 +1,22 @@
+{
+  "pipelineId": "3689bf81-7587-4a49-9256-6831968e3aa6",
+  "tenantId": "5ade13625558f2c6688d15ce",
+  "environments": [
+    {
+      "name": "Input",
+      "id": "5cae7c79-4257-471f-8be3-f7a3fd71192f"
+    },
+    {
+      "name": "DEV",
+      "id": "3681e746-c09e-4a5b-9e38-626465b30fc6"
+    },
+    {
+      "name": "QA",
+      "id": "27b2c08e-6c82-40f3-9fc1-100f273d9104"
+    },
+    {
+      "name": "PROD",
+      "id": "4167d50a-9e24-41dd-89ab-8de2d6994ed5"
+    }
+  ]
+}
